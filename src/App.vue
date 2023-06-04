@@ -1,9 +1,13 @@
 <script setup>
 </script>
-
 <template>
-  App vue
+  <router-link :to="`/post/${id}`">blog</router-link>
   <router-view></router-view>
 </template>
 
-<style scoped></style>
+<script setup>
+  import { computed } from 'vue';
+  import store from '../store/index.js'
+
+  const id = computed(() => store.state.id);
+</script>
