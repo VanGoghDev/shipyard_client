@@ -1,17 +1,55 @@
 import { createRouter, createWebHistory } from "vue-router";
-import home from "../views/Home.vue"
-import shipYardPost from "../views/ShipyardPost.vue"
+import defaultLayout from "../components/DefaultLayout.vue";
+import shipYardPost from "../views/ShipyardPost.vue";
+import posts from "../views/ShipyardPosts.vue"
+import login from "../views/Login.vue"
+import gallery from "../views/Gallery.vue"
+import contacts from "../views/Contacts.vue"
+import profile from "../views/Profile.vue"
+import sandbox from "../views/Sandbox.vue"
 
 const routes = [
     {
         path: '/',
-        name: 'home',
-        component: home
+        name: 'defaultLayout',
+        component: defaultLayout,
+        children: [
+            {
+                path: '/posts',
+                name: 'posts',
+                component: posts
+            },
+            {
+                path: '/post/:id',
+                name: 'post',
+                component: shipYardPost
+            },
+            {
+                path: '/gallery',
+                name: 'gallery',
+                component: gallery
+            },
+            {
+                path: '/contacts',
+                name: 'contacts',
+                component: contacts
+            },
+            {
+                path: '/profile',
+                name: 'profile',
+                component: profile
+            }
+        ]
     },
     {
-        path: '/post/:id',
-        name: 'post',
-        component: shipYardPost
+        path: '/login',
+        name: 'login',
+        component: login
+    },
+    {
+        path: '/sandbox',
+        name: 'sandbox',
+        component: sandbox
     }
 ];
 

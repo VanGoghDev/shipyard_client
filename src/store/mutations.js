@@ -4,5 +4,8 @@ export default {
     },
     decrement(state) {
         state.id--;
+    },
+    posts(state, posts) {
+        state.posts = posts
     }
 }

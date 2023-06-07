@@ -1,0 +1,3 @@
+<template>
+    Мои контакты
+</template>

@@ -1,0 +1,3 @@
+<template>
+    Галерея
+</template>
