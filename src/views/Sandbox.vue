@@ -15,7 +15,7 @@ const id = computed(() => store.state.id);
 const posts = computed(() => store.state.posts)
 
 onMounted(async () => {
-    let response = await axiosClient.get("products/1")
+    let response = await axiosClient.get("posts")
     store.commit("posts", response.data)
     console.log(response.data)
 })
