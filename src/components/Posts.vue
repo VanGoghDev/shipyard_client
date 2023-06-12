@@ -1,4 +1,6 @@
 <template>
+    example of post
+    <pre>{{ posts[0] }}</pre>
     <div>
         <postItem v-for="post in posts" :post="post"></postItem>
     </div>

@@ -16,7 +16,7 @@ onMounted(async () => {
 const posts = computed(() => store.state.posts);
 
 async function getPosts() {
-    axiosClient.get("posts")
+    axiosClient.get("posts?skip=1&&limit=30")
     .then(({ data }) => store.commit("posts", data.posts));
 }
 </script>

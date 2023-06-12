@@ -1,4 +1,7 @@
 <template>
+    <pre>
+        {{ post }}
+    </pre>
     <div>
         {{ post.title }}
         Реакций: {{ post.reactions }}
