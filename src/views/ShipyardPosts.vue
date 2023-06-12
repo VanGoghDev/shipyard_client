@@ -16,7 +16,7 @@ onMounted(async () => {
 const posts = computed(() => store.state.posts);
 
 async function getPosts() {
-    let response = await axiosClient.get("posts")
-    store.commit("posts", response.data.posts)
+    axiosClient.get("posts")
+    .then(({ data }) => store.commit("posts", data.posts));
 }
 </script>

@@ -1,5 +1,10 @@
 <template>
-    <postItem v-for="post in posts" :post="post"></postItem>
+    <div>
+        <postItem v-for="post in posts" :post="post"></postItem>
+    </div>
+    <div v-if="!posts.length">
+        There are no posts
+    </div>
 </template>
 
 <script setup>

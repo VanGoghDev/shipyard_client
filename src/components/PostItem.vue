@@ -1,7 +1,12 @@
 <template>
-    <div>
-        {{ post?.title }}
-    </div>
+    <article>
+        <header>
+            <router-link :to="`/post/${post.id}`">{{ post.title }}</router-link>
+        </header>
+        <div>
+            {{ post.tag }}
+        </div>
+    </article>
 </template>
 
 <script setup>

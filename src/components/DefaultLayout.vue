@@ -1,6 +1,10 @@
 <template>
-    <navbar></navbar>
-    <router-view></router-view>
+    <header>
+        <navbar></navbar>
+    </header>
+    <main>
+        <router-view></router-view>
+    </main>
 </template>
 
 <script setup>
