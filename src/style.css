@@ -1,89 +1,69 @@
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+* {
+  box-sizing: border-box;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+html {
+  height: 100%;
 }
 
 body {
+  min-height: 100%;
   margin: 0;
+  padding: 0;
+}
+
+.navigation {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: rgb(68 155 255);
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Proxima Nova', sans-serif;
+}
+
+.navigation__link {
+  display: inline-block;
+  padding: 20px;
+  text-decoration: none;
+  color: white;
+}
+
+.blog-items {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: antiquewhite;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.blog-item {
+  margin:5px;
+  padding: 0px 20px;
+  display: inline-block;
+  background-color: #fafafa;
+  width: 500px;
+  height: 300px;
+  font-family: 'Proxima Nova', sans-serif;
+  border: 1px solid black;
+  box-shadow: 2px 2px 0 black;
+  position: relative;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.blog-item__header div{
+  display: inline;
 }
 
-.card {
-  padding: 2em;
+.blog-item__link {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.blog-item__body {
+  margin: 20 0px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
+.blog-item__footer {
+  position: absolute;
+  bottom: 10px;
+}

@@ -1,7 +1,7 @@
 <template>
-    example of post
-    <pre>{{ posts[0] }}</pre>
-    <div>
+    <!-- example of post
+    <pre>{{ posts[0] }}</pre> -->
+    <div class="blog-items">
         <postItem v-for="post in posts" :post="post"></postItem>
     </div>
     <div v-if="!posts.length">
