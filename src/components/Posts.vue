@@ -1,6 +1,13 @@
 <template>
     <!-- example of post
     <pre>{{ posts[0] }}</pre> -->
+    <pagination
+        :pageCount="20"
+        :prevText="'<'"
+        :nextText="'>'"
+        :pageRange="3"
+        :breakViewText="'...'"
+    ></pagination>    
     <div class="blog-items">
         <postItem v-for="post in posts" :post="post"></postItem>
     </div>
@@ -11,6 +18,7 @@
 
 <script setup>
 import postItem from "./PostItem.vue"
+import pagination from '../components/Pagination.vue'
 
 const props = defineProps({
     posts: {

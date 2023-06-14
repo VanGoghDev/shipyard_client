@@ -1,5 +1,11 @@
 <template>
-    <pagination></pagination>
+    <pagination
+        :pageCount="20"
+        :prevText="'<'"
+        :nextText="'>'"
+        :pageRange="3"
+        :breakViewText="'...'"
+    ></pagination>
     <pre>{{ posts }}</pre>
     <button v-on:click="incrementid">increment</button>
     <button v-on:click="decrementid">decrement</button>
