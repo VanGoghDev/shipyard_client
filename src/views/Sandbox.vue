@@ -1,4 +1,5 @@
 <template>
+    <pagination></pagination>
     <pre>{{ posts }}</pre>
     <button v-on:click="incrementid">increment</button>
     <button v-on:click="decrementid">decrement</button>
@@ -10,6 +11,7 @@
 import { computed, onMounted } from 'vue';
 import store from '../store/index';
 import axiosClient from '../axiosClient.js';
+import pagination from '../components/Pagination.vue'
 
 const id = computed(() => store.state.id);
 const posts = computed(() => store.state.posts)

@@ -10,6 +10,7 @@ body {
   min-height: 100%;
   margin: 0;
   padding: 0;
+  background-color: antiquewhite;
 }
 
 .navigation {
@@ -33,11 +34,10 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   flex-wrap: wrap;
-  background-color: antiquewhite;
 }
 
 .blog-item {
-  margin:5px;
+  margin: 5px;
   padding: 0px 20px;
   display: inline-block;
   background-color: #fafafa;
@@ -49,8 +49,12 @@ body {
   position: relative;
 }
 
-.blog-item__header div{
-  display: inline;
+.blog-item__header {
+  margin-top: 0.5em;
+}
+
+.blog-item__body {
+  margin-top: 0.5em;
 }
 
 .blog-item__link {
@@ -59,11 +63,19 @@ body {
   font-weight: bold;
 }
 
-.blog-item__body {
-  margin: 20 0px;
-}
-
 .blog-item__footer {
   position: absolute;
   bottom: 10px;
+  right: 0;
+  left: 0;
+  width: 100%;
+}
+
+.blog-item__reactions {
+  display: inline-block;
+  margin: 0 2em;
+}
+
+.blog-item__comments {
+  display: inline-block;
 }
