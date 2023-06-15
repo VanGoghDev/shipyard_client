@@ -70,23 +70,21 @@ const pages = computed(() => {
     let midPageIndex = props.pageRange + currentDisplayPageIndex.value;
     for (let i = 1; i < props.pageCount + 1; i++) {
         let displayPage = i === midPageIndex - displayOffset
+        let displayAfterMid = i === props.pageCount - displayOffset;
         arr[i - 1] = {
             number: i,
             disabled: i === midPageIndex,
             active: i === currentDisplayPageIndex.value,
-            display: displayPage || i === midPageIndex + displayOffset
+            display: displayPage || i === props.pageCount - displayOffset
         }
         if (i < midPageIndex && displayPage) {
             displayOffset--;
         }
         if (i === midPageIndex) {
-            displayOffset = 1;
+            displayOffset = props.pageRange;
         }
-        if (i > midPageIndex) {
-            if (displayOffset === props.pageRange) {
-                displayOffset = 10000;
-            }
-            displayOffset++;
+        if (i > midPageIndex && displayAfterMid) {
+            displayOffset--;
         }
     }
     return arr;
