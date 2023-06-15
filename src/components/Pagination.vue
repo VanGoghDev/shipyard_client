@@ -1,4 +1,5 @@
 <template>
+    <div v-for="page in pages">{{ page }}</div>
     <ul class="pagination">
         <li class="pagination__item">
             <a @click="firstPage()" class="pagination__link" href="#">&lt;&lt;</a>
@@ -8,9 +9,10 @@
             <a @click="prevPage()" class="pagination__link" href="#">{{ prevText }}</a>
         </li>
 
-        <li v-for="page in pages.filter(p => p.display)" :class="{ 'pagination__item_active': page.active }" class="pagination__item">
+        <li v-for="page in pages.filter(p => p.display)" :class="{ 'pagination__item_active': page.active }"
+            class="pagination__item">
             <a v-if="page.disabled" class="pagination__link"> {{ breakViewText }}</a>
-            <a v-if="page.display && !page.disabled" class="pagination__link" href="#"> {{
+            <a v-if="page.display && !page.disabled" @click="selectPage(page.number)" class="pagination__link" href="#"> {{
                 page.number }}</a>
         </li>
 
@@ -58,7 +60,6 @@ const props = defineProps({
 })
 
 const currentDisplayPageIndex = ref(1);
-const selectedPageIndex = ref(1);
 const firstPageIndex = 1;
 const maxCurrentPage = props.pageRange * 2;
 
@@ -94,13 +95,10 @@ const pages = computed(() => {
 function prevPage() {
     if (currentDisplayPageIndex.value === firstPageIndex) return;
     currentDisplayPageIndex.value--;
-    selectedPageIndex.value = currentDisplayPageIndex.value;
 }
 
 function nextPage() {
-    if (selectedPageIndex.value <= props.pageCount)
-        selectedPageIndex.value = currentDisplayPageIndex.value++;
-    if (currentDisplayPageIndex.value === props.pageCount - maxCurrentPage) return;
+    if (currentDisplayPageIndex.value === props.pageCount) return;
     currentDisplayPageIndex.value++;
 }
 
@@ -109,7 +107,11 @@ function firstPage() {
 }
 
 function lastPage() {
-    currentDisplayPageIndex.value = props.pageCount - maxCurrentPage;
+    currentDisplayPageIndex.value = props.pageCount;
+}
+
+function selectPage(index) {
+    currentDisplayPageIndex.value = index;
 }
 
 </script>
