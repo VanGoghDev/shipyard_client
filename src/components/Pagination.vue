@@ -66,7 +66,7 @@ const maxCurrentPage = props.pageRange * 2;
 const pages = computed(() => {
     let arr = [];
     let displayOffset = props.pageRange;
-    let midPageIndex = currentDisplayPageIndex.value + 3;
+    let midPageIndex = currentDisplayPageIndex.value + 2;
     for (let i = 0; i < props.pageCount + 1; i++) {
         let displayPage = i === midPageIndex - displayOffset;
         let displayAfterMid = i === props.pageCount - displayOffset;
