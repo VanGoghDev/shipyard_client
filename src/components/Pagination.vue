@@ -65,11 +65,10 @@ const maxCurrentPage = props.pageRange * 2;
 
 const pages = computed(() => {
     let arr = [];
-
     let displayOffset = props.pageRange;
-    let midPageIndex = props.pageRange + currentDisplayPageIndex.value;
-    for (let i = 1; i < props.pageCount + 1; i++) {
-        let displayPage = i === midPageIndex - displayOffset
+    let midPageIndex = currentDisplayPageIndex.value + 2;
+    for (let i = 0; i < props.pageCount + 1; i++) {
+        let displayPage = i === midPageIndex - displayOffset;
         let displayAfterMid = i === props.pageCount - displayOffset;
         arr[i - 1] = {
             number: i,
@@ -81,7 +80,7 @@ const pages = computed(() => {
             displayOffset--;
         }
         if (i === midPageIndex) {
-            displayOffset = props.pageRange;
+            displayOffset = props.pageRange - 1;
         }
         if (i > midPageIndex && displayAfterMid) {
             displayOffset--;
