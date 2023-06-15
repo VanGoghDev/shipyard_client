@@ -1,31 +1,34 @@
 <template>
     <ul class="pagination">
         <li class="pagination__item">
-            <a href="#" class="pagination__link">{{ prevText }}</a>
+            <a @click="firstPage()" class="pagination__link" href="#">&lt;&lt;</a>
         </li>
-        <li v-for="index in pageRange" :key="index" class="pagination__item" :class="[
-            index === currentPageNumber ? 'pagination__item_active' : '',
-        ]">
-            <a href="#" class="pagination__link">{{ index }}</a>
-        </li>
+
         <li class="pagination__item">
-            <a href="#" class="pagination__link">{{ breakViewText }}</a>
+            <a @click="prevPage()" class="pagination__link" href="#">{{ prevText }}</a>
         </li>
-        <li v-for="index in reverseKeys(pageRange)" :key="index" class="pagination__item">
-            <a href="#" class="pagination__link">{{ pageCount - (index - 1) }}</a>
+
+        <li v-for="page in pages.filter(p => p.display)" :class="{ 'pagination__item_active': page.active }" class="pagination__item">
+            <a v-if="page.disabled" class="pagination__link"> {{ breakViewText }}</a>
+            <a v-if="page.display && !page.disabled" class="pagination__link" href="#"> {{
+                page.number }}</a>
         </li>
+
         <li class="pagination__item">
-            <a href="#" class="pagination__link">{{ nextText }}</a>
+            <a @click="nextPage()" class="pagination__link" href="#">{{ nextText }}</a>
+        </li>
+
+        <li class="pagination__item">
+            <a @click="lastPage()" class="pagination__link" href="#">&gt;&gt;</a>
         </li>
     </ul>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 // https://vuejsexamples.com/a-vue-3-component-to-make-pagination-based-on-vuejs-paginate/
 const props = defineProps({
-    pageCount: true,
     pageCount: {
         type: Number,
         required: true
@@ -54,9 +57,59 @@ const props = defineProps({
     }
 })
 
-const currentPageNumber = ref(1);
-function reverseKeys(n) {
-    return [...Array(n).keys()].slice().reverse()
+const currentDisplayPageIndex = ref(1);
+const selectedPageIndex = ref(1);
+const firstPageIndex = 1;
+const maxCurrentPage = props.pageRange * 2;
+
+const pages = computed(() => {
+    let arr = [];
+
+    let displayOffset = props.pageRange;
+    let midPageIndex = props.pageRange + currentDisplayPageIndex.value;
+    for (let i = 1; i < props.pageCount + 1; i++) {
+        let displayPage = i === midPageIndex - displayOffset
+        arr[i - 1] = {
+            number: i,
+            disabled: i === midPageIndex,
+            active: i === currentDisplayPageIndex.value,
+            display: displayPage || i === midPageIndex + displayOffset
+        }
+        if (i < midPageIndex && displayPage) {
+            displayOffset--;
+        }
+        if (i === midPageIndex) {
+            displayOffset = 1;
+        }
+        if (i > midPageIndex) {
+            if (displayOffset === props.pageRange) {
+                displayOffset = 10000;
+            }
+            displayOffset++;
+        }
+    }
+    return arr;
+})
+
+function prevPage() {
+    if (currentDisplayPageIndex.value === firstPageIndex) return;
+    currentDisplayPageIndex.value--;
+    selectedPageIndex.value = currentDisplayPageIndex.value;
+}
+
+function nextPage() {
+    if (selectedPageIndex.value <= props.pageCount)
+        selectedPageIndex.value = currentDisplayPageIndex.value++;
+    if (currentDisplayPageIndex.value === props.pageCount - maxCurrentPage) return;
+    currentDisplayPageIndex.value++;
+}
+
+function firstPage() {
+    currentDisplayPageIndex.value = 1;
+}
+
+function lastPage() {
+    currentDisplayPageIndex.value = props.pageCount - maxCurrentPage;
 }
 
 </script>
@@ -81,6 +134,7 @@ function reverseKeys(n) {
 }
 
 .pagination__item_active {
-    background-color: rgb(68 155 255);;
+    background-color: rgb(68 155 255);
+    ;
 }
 </style>
