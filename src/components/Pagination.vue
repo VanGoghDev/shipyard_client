@@ -1,5 +1,4 @@
 <template>
-    <div v-for="page in pages">{{ page }}</div>
     <ul class="pagination">
         <li class="pagination__item">
             <a @click="firstPage()" class="pagination__link" href="#">&lt;&lt;</a>
@@ -59,32 +58,45 @@ const props = defineProps({
     }
 })
 
-const currentDisplayPageIndex = ref(1);
-const firstPageIndex = 1;
+const currentDisplayPageIndex = ref(0);
+const firstPageIndex = 0;
 const maxCurrentPage = props.pageRange * 2;
 
 const pages = computed(() => {
     let arr = [];
-    let displayOffset = props.pageRange;
-    let midPageIndex = currentDisplayPageIndex.value + 2;
-    for (let i = 0; i < props.pageCount + 1; i++) {
-        let displayPage = i === midPageIndex - displayOffset;
-        let displayAfterMid = i === props.pageCount - displayOffset;
-        arr[i - 1] = {
-            number: i,
-            disabled: i === midPageIndex,
+
+    for (let i = 0; i < props.pageCount; i++) {
+        arr[i] = {
+            number: i + 1,
+            disabled: false,
             active: i === currentDisplayPageIndex.value,
-            display: displayPage || i === props.pageCount - displayOffset
+            display: false
         }
-        if (i < midPageIndex && displayPage) {
-            displayOffset--;
+    }
+
+    for (let i = - 1; i < props.pageRange - 1; i++) {
+        let index = currentDisplayPageIndex.value + i;
+        if (index >= 0 && index < props.pageCount) {
+            let page = arr[index];
+            page.display = true;
+            arr.splice(index, 1, page);
         }
-        if (i === midPageIndex) {
-            displayOffset = props.pageRange - 1;
-        }
-        if (i > midPageIndex && displayAfterMid) {
-            displayOffset--;
-        }
+    }
+
+    let index = currentDisplayPageIndex.value + props.pageRange - 1;
+    if (index <= props.pageCount - props.pageRange) {
+        let page = arr[index]
+        page.display = true;
+        page.disabled = true;
+        arr.splice(index, 1, page)
+    }
+
+
+    for (let i = props.pageRange; i > 0; i--) {
+        let index = props.pageCount - i;
+        let page = arr[index];
+        page.display = true;
+        arr.splice(index, 1, page);
     }
     return arr;
 })
@@ -100,15 +112,15 @@ function nextPage() {
 }
 
 function firstPage() {
-    currentDisplayPageIndex.value = 1;
+    currentDisplayPageIndex.value = 0;
 }
 
 function lastPage() {
-    currentDisplayPageIndex.value = props.pageCount;
+    currentDisplayPageIndex.value = props.pageCount - 1;
 }
 
 function selectPage(index) {
-    currentDisplayPageIndex.value = index;
+    currentDisplayPageIndex.value = index - 1;
 }
 
 </script>
