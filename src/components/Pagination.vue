@@ -129,7 +129,7 @@ function selectPage(index) {
 .pagination {
     list-style-type: none;
     display: flex;
-    font-size: 1.2em;
+    padding: 0;
 }
 
 .pagination__link {
@@ -146,6 +146,5 @@ function selectPage(index) {
 
 .pagination__item_active {
     background-color: rgb(68 155 255);
-    ;
 }
 </style>
