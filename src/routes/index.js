@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import defaultLayout from "../components/DefaultLayout.vue";
 import shipYardPost from "../views/ShipyardPost.vue";
+import studyBook from "../views/StudyBook.vue";
 import posts from "../views/ShipyardPosts.vue"
 import login from "../views/Login.vue"
 import gallery from "../views/Gallery.vue"
@@ -14,6 +15,11 @@ const routes = [
         name: 'defaultLayout',
         component: defaultLayout,
         children: [
+            {
+                path: '/study-book',
+                name: 'study-book',
+                component: studyBook
+            },
             {
                 path: '/posts',
                 name: 'posts',
