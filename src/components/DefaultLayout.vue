@@ -2,7 +2,7 @@
     <header>
         <navbar></navbar>
     </header>
-    <main>
+    <main clas="content" style="margin: 0 10vw">
         <router-view></router-view>
     </main>
     <footer style="display: flex; margin: auto auto 0">
@@ -14,3 +14,5 @@
 import navbar from './Navbar.vue'
 import foot from './Footer.vue'
 </script>
+
+<style scoped></style>

@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: 'Proxima Nova', sans-serif;
 }
 
 html {
@@ -40,11 +41,11 @@ body {
   margin: 5px;
   padding: 0px 20px;
   background-color: #fafafa;
-  font-family: 'Proxima Nova', sans-serif;
   border: 1px solid black;
   box-shadow: 2px 2px 0 black;
   position: relative;
   float: left;
+  border-radius: 6px;
 }
 
 .blog-item__header {
