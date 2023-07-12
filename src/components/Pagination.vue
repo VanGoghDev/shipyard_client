@@ -130,7 +130,7 @@ $active-color: rgb(68 155 255);
 .pagination {
     list-style-type: none;
     display: flex;
-    font-size: 1.2em;
+    padding: 0;
 }
 
 .pagination__link {
