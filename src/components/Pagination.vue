@@ -125,7 +125,8 @@ function selectPage(index) {
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+$active-color: rgb(68 155 255);
 .pagination {
     list-style-type: none;
     display: flex;
@@ -145,6 +146,6 @@ function selectPage(index) {
 }
 
 .pagination__item_active {
-    background-color: rgb(68 155 255);
+    background-color: $active-color;
 }
 </style>
