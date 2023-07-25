@@ -1,3 +1,7 @@
+<script setup>
+import ProfileInfo from '../components/ProfileInfo.vue'
+</script>
+
 <template>
-    Мой профиль
+    <ProfileInfo></ProfileInfo>
 </template>
