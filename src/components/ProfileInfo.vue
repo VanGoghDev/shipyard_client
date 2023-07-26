@@ -57,7 +57,6 @@
 .photo__name {
     margin-top: 0.8rem;
 
-    width: 7.81763rem;
     height: 0.78231rem;
     flex-shrink: 0;
 
