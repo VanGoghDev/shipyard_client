@@ -6,9 +6,10 @@ import Achievement from "./Achievement.vue"
     <div class="achievements achievements_white">
         <div class="achievements__title">Титулы</div>
         <div class="achievements__list">
-            <Achievement :name="'Искатель сокровищ'" :description="'Успешно зарегистрировался на верфи'"
+            <Achievement class="achievement" :name="'Искатель сокровищ'" :description="'Успешно зарегистрировался на верфи'"
                 :imgName="'treasureMap.svg'"></Achievement>
-            <Achievement :name="'Моделист'" :description="'Создал модель судна'" :imgName="'shipInaBottle.svg'">
+            <Achievement class="achievement" :name="'Моделист'" :description="'Создал модель судна'"
+                :imgName="'shipInaBottle.svg'">
             </Achievement>
         </div>
     </div>
@@ -41,5 +42,9 @@ import Achievement from "./Achievement.vue"
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+
+.achievement {
+    margin-left: 2.19rem;
 }
 </style>
