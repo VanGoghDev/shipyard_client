@@ -2,12 +2,30 @@
 import ProfileInfo from '../components/ProfileInfo.vue'
 import Achievements from '../components/Achievements.vue'
 import ContentSwitcher from '../components/ContentSwitcher.vue'
+import ModelPost from '../components/modelPost/modelPost.vue'
 </script>
 
 <template>
-    <div class="profile-content grid grid-cols-2 gap-7">
+    <div class="profile-content grid grid-cols-2 gap-5">
         <div class="right-column">
             <ContentSwitcher></ContentSwitcher>
+            <ModelPost class="post"></ModelPost>
+            <ModelPost class="post"></ModelPost>
+            <ModelPost class="post"></ModelPost>
+            <ModelPost class="post"></ModelPost>
+            <ModelPost class="post"></ModelPost>
+            <ModelPost class="post"></ModelPost>
+            <ModelPost class="post"></ModelPost>
+            <ModelPost class="post"></ModelPost>
+            <ModelPost class="post"></ModelPost>
+            <ModelPost class="post"></ModelPost>
+            <ModelPost class="post"></ModelPost>
+            <ModelPost class="post"></ModelPost>
+            <ModelPost class="post"></ModelPost>
+            <ModelPost class="post"></ModelPost>
+            <ModelPost class="post"></ModelPost>
+            <ModelPost class="post"></ModelPost>
+
         </div>
         <div class="left-column gap-16 col-auto">
             <ProfileInfo></ProfileInfo>
@@ -25,5 +43,9 @@ import ContentSwitcher from '../components/ContentSwitcher.vue'
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+}
+
+.post {
+    margin-top: 1.63rem;
 }
 </style>

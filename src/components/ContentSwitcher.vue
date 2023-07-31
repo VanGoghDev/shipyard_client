@@ -1,8 +1,11 @@
 <template>
     <div class="switcher flex justify-center">
-        <div>Модели</div>
+        <div>Мои модели</div>
         <div>Изобретения</div>
         <div>Статьи</div>
+    </div>
+    <div>
+
     </div>
 </template>
 
