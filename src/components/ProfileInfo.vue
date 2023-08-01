@@ -1,5 +1,5 @@
 <template>
-    <div class="profile-info profile-info_white">
+    <div class="profile-info content content-white">
         <div class="profile-info__background">
             <div class="background__img">
                 <img src="../assets/profile-background.png">
@@ -24,12 +24,7 @@
 .profile-info {
     width: 20.32581rem;
     height: 16.875rem;
-    border-radius: 0.9375rem;
     position: relative;
-}
-
-.profile-info_white {
-    background: #F9FAFB;
 }
 
 .profile-info__background {

@@ -3,7 +3,7 @@ import Achievement from "./Achievement.vue"
 </script>
 
 <template>
-    <div class="achievements achievements_white">
+    <div class="achievements content content-white">
         <div class="achievements__title">Титулы</div>
         <div class="achievements__list">
             <Achievement class="achievement" :name="'Искатель сокровищ'" :description="'Успешно зарегистрировался на верфи'"
@@ -19,11 +19,6 @@ import Achievement from "./Achievement.vue"
 .achievements {
     width: 20.4375rem;
     height: 16.875rem;
-}
-
-.achievements_white {
-    border-radius: 0.9375rem;
-    background: #F9FAFB;
 }
 
 .achievements__title {

@@ -19,12 +19,9 @@
 
 .photos-container {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-}
-
-.selected-photo img {
-    width: 482px;
-    height: 280px;
+    max-width: 500px;
 }
 
 .selected-photo img {
