@@ -3,14 +3,15 @@
         <div class="navigation__left">
             <router-link class="navigation__link" to="/"><img src="../assets/logo.svg" alt="logo" /></router-link>
         </div>
-        <div class="navigation__right">
+        <div class="navigation__right" v-show="!mobile">
             <router-link class="navigation__link" to="/study-book">Учебник</router-link>
             <router-link class="navigation__link" to="/posts">Истории</router-link>
             <router-link class="navigation__link" to="/gallery">Фотогалерея</router-link>
-            <router-link class="navigation__link" to="/contacts">Контакты</router-link>
             <router-link class="navigation__link" to="/profile">Профиль</router-link>
         </div>
-
+        <div class="navigation-modile__right" v-show="mobile">
+            <font-awesome-icon icon="fa-solid fa-bars" />
+        </div>
     </nav>
 </template>
 
@@ -26,6 +27,12 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 9.44rem;
+
+    position: fixed;
+    top: 0;
+    transition: .5s ease all;
+    width: 100%;
+    z-index: 99;
 }
 
 .navigation_blue {
@@ -39,3 +46,11 @@
     color: white;
 }
 </style>
+
+<script setup>
+
+import { ref } from 'vue'
+
+const mobile = ref(true)
+
+</script>

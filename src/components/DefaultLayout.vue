@@ -15,4 +15,8 @@ import navbar from './Navbar.vue'
 import foot from './Footer.vue'
 </script>
 
-<style scoped></style>
+<style scoped>
+header {
+    padding-bottom: 40px;
+}
+</style>
