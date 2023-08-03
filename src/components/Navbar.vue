@@ -1,5 +1,30 @@
+<script setup>
+
+import { ref, onMounted } from 'vue'
+
+const mobile = ref(true);
+const mobileNav = ref(false);
+
+var checkScreen = function () {
+    let windowWidth = window.innerWidth;
+    if (windowWidth <= 750) {
+        mobile.value = true;
+        return;
+    }
+    mobile.value = false;
+    mobileNav.value = false;
+    return;
+};
+
+onMounted(() => {
+    window.addEventListener('resize', checkScreen);
+    checkScreen();
+});
+
+</script>
+
 <template>
-    <nav class="navigation navigation_blue">
+    <nav class="navigation navigation_blue" :class="{ 'navigation-mobile': mobile }">
         <div class="navigation__left">
             <router-link class="navigation__link" to="/"><img src="../assets/logo.svg" alt="logo" /></router-link>
         </div>
@@ -35,6 +60,10 @@
     z-index: 99;
 }
 
+.navigation-mobile {
+    padding: 0 2.44rem;
+}
+
 .navigation_blue {
     background: #0076BC;
 }
@@ -46,11 +75,3 @@
     color: white;
 }
 </style>
-
-<script setup>
-
-import { ref } from 'vue'
-
-const mobile = ref(true)
-
-</script>
