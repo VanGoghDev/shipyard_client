@@ -1,3 +1,7 @@
+<script setup>
+import Button from '../components/Button.vue'
+</script>
+
 <template>
     <div class="profile-info content content-white">
         <div class="profile-info__background">
@@ -13,10 +17,14 @@
             <div class="photo__name">Верфь Ивана Ивановича</div>
             <div class="photo_add-btn"></div>
         </div>
-        <div class="profile-info__setting-btn"></div>
+        <div class="profile-info__setting-btn">
+            <font-awesome-icon icon="fa-solid fa-cogs" />
+        </div>
         <div class="profile-ijnfo__shipyard-statistics"></div>
         <div class="profile-info__social-links"></div>
-        <div class="profile-info__new-post-btn"></div>
+        <div class="profile-info__new-post-btn">
+            <Button :blue="true">Написать статью</Button>
+        </div>
     </div>
 </template>
 
@@ -25,6 +33,10 @@
     width: 20.32581rem;
     height: 16.875rem;
     position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .profile-info__background {
@@ -49,6 +61,12 @@
     background: #F9FAFB;
 }
 
+.profile-info__setting-btn {
+    position: absolute;
+    top: 5.15rem;
+    right: 1.07rem;
+}
+
 .photo__name {
     margin-top: 0.8rem;
 
@@ -58,5 +76,11 @@
     color: #000;
     font-size: 0.75rem;
     font-weight: 400;
+}
+
+.profile-info__new-post-btn {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
 }
 </style>

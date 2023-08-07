@@ -16,6 +16,10 @@ var checkScreen = function () {
     return;
 };
 
+var openMobileNav = function () {
+    mobileNav.value = !mobileNav.value;
+}
+
 onMounted(() => {
     window.addEventListener('resize', checkScreen);
     checkScreen();
@@ -32,10 +36,18 @@ onMounted(() => {
             <router-link class="navigation__link" to="/study-book">Учебник</router-link>
             <router-link class="navigation__link" to="/posts">Истории</router-link>
             <router-link class="navigation__link" to="/gallery">Фотогалерея</router-link>
-            <router-link class="navigation__link" to="/profile">Профиль</router-link>
+            <router-link class="navigation__link" to="/profile">
+                <font-awesome-icon icon="fa-solid fa-user" />
+            </router-link>
         </div>
-        <div class="navigation-modile__right" v-show="mobile">
-            <font-awesome-icon icon="fa-solid fa-bars" />
+        <div class="navigation-mobile__right" v-show="mobile">
+            <font-awesome-icon icon="fa-solid fa-bars" @click="(openMobileNav())" />
+        </div>
+        <div class="navigation-mobile-list" v-show="mobileNav">
+            <router-link class="navigation-mobile__link" to="/study-book">Учебник</router-link>
+            <router-link class="navigation-mobile__link" to="/posts">Истории</router-link>
+            <router-link class="navigation-mobile__link" to="/gallery">Фотогалерея</router-link>
+            <router-link class="navigation-mobile__link" to="/profile">Профиль</router-link>
         </div>
     </nav>
 </template>
@@ -51,7 +63,7 @@ onMounted(() => {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 9.44rem;
+    /* padding: 0 9.44rem; */
 
     position: fixed;
     top: 0;

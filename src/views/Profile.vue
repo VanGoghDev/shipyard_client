@@ -1,3 +1,24 @@
+<script setup>
+import { onMounted, ref } from 'vue'
+
+import ProfileInfo from '../components/ProfileInfo.vue'
+import Achievements from '../components/Achievements.vue'
+import ContentSwitcher from '../components/ContentSwitcher.vue'
+import ModelPost from '../components/modelPost/modelPost.vue'
+
+const post = ref({});
+
+onMounted(async () => {
+    post.value = {
+        "Name": "Бригантина Феникс",
+        "CreatedAgo": "Создано 4 дня назад",
+        "Scale": "1:72",
+        "Description": "Lorem ipsum dolor sit amet consectetur. Arcu sed ipsum nisl blandit cursus sed. Eget rutrum tincidunt auctor neque. Erat vitae nulla lectus id morbi aliquet. A sed id consectetur phasellus aliquam cursus amet ut. Varius ac eget elit sollicitudin nulla aliquam purus."
+    }
+});
+
+</script>
+
 <template>
     <div class="profile-content flex justify-center gap-5">
         <div class="right-column">
@@ -29,24 +50,3 @@
     margin-top: 1.63rem;
 }
 </style>
-
-<script setup>
-import { onMounted, ref } from 'vue'
-
-import ProfileInfo from '../components/ProfileInfo.vue'
-import Achievements from '../components/Achievements.vue'
-import ContentSwitcher from '../components/ContentSwitcher.vue'
-import ModelPost from '../components/modelPost/modelPost.vue'
-
-const post = ref({});
-
-onMounted(async () => {
-    post.value = {
-        "Name": "Бригантина Феникс",
-        "CreatedAgo": "Создано 4 дня назад",
-        "Scale": "1:72",
-        "Description": "Lorem ipsum dolor sit amet consectetur. Arcu sed ipsum nisl blandit cursus sed. Eget rutrum tincidunt auctor neque. Erat vitae nulla lectus id morbi aliquet. A sed id consectetur phasellus aliquam cursus amet ut. Varius ac eget elit sollicitudin nulla aliquam purus."
-    }
-})
-
-</script>
