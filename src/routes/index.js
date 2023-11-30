@@ -3,6 +3,7 @@ import defaultLayout from "../components/DefaultLayout.vue";
 import shipYardPost from "../views/ShipyardPost.vue";
 import studyBook from "../views/StudyBook.vue";
 import posts from "../views/ShipyardPosts.vue"
+import loginLayout from "../components/LoginLayout.vue"
 import login from "../views/Login.vue"
 import gallery from "../views/Gallery.vue"
 import contacts from "../views/Contacts.vue"
@@ -50,7 +51,14 @@ const routes = [
     {
         path: '/login',
         name: 'login',
-        component: login
+        component: loginLayout,
+        children: [
+            {
+                path: '/auth',
+                name: 'login',
+                component: login
+            }
+        ]
     },
     {
         path: '/sandbox',

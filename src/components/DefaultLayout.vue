@@ -1,3 +1,8 @@
+<script setup>
+    import navbar from './Navbar.vue'
+    import foot from './Footer.vue'
+</script>
+
 <template>
     <header>
         <navbar></navbar>
@@ -9,11 +14,6 @@
         <foot></foot>
     </footer>
 </template>
-
-<script setup>
-import navbar from './Navbar.vue'
-import foot from './Footer.vue'
-</script>
 
 <style scoped>
 header {

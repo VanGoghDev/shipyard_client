@@ -20,7 +20,7 @@ import Button from '../components/Button.vue'
         <div class="profile-info__setting-btn">
             <font-awesome-icon icon="fa-solid fa-cogs" />
         </div>
-        <div class="profile-ijnfo__shipyard-statistics"></div>
+        <div class="profile-info__shipyard-statistics"></div>
         <div class="profile-info__social-links"></div>
         <div class="profile-info__new-post-btn">
             <Button :blue="true">Написать статью</Button>
