@@ -13,6 +13,7 @@ const props = defineProps({
 </script>
 
 <template>
+    test
     <label :for="name">{{ label }} <span v-if="required" class="required-asterisk">*</span></label>
     <input type="text" :id="id" :placeholder="placeholder" :value="value">
 </template>
