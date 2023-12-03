@@ -39,6 +39,7 @@ onMounted(() => {
             <router-link class="navigation__link" to="/profile">
                 <font-awesome-icon icon="fa-solid fa-user" />
             </router-link>
+            <router-link class="navigation__link" to="/auth">Auth</router-link>
         </div>
         <div class="navigation-mobile__right" v-show="mobile">
             <font-awesome-icon icon="fa-solid fa-bars" @click="(openMobileNav())" />
